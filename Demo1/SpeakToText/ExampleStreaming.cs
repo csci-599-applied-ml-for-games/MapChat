@@ -36,8 +36,6 @@ namespace IBM.Watsson.Examples
         [Tooltip("The service URL (optional). This defaults to \"https://stream.watsonplatform.net/speech-to-text/api\"")]
         [SerializeField]
         private string _serviceUrl;
-        //[Tooltip("Text field to display the results of streaming.")]
-        //public Text ResultsField;
         [Header("IAM Authentication")]
         [Tooltip("The IAM apikey.")]
         [SerializeField]
@@ -66,35 +64,26 @@ namespace IBM.Watsson.Examples
             Runnable.Run(CreateService());
         }
 
-        //void update()
-        //{
-        //    // check if ready for dialogue
-        //    if(Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        StopRecording();
-        //    }
-        //
-        //    if(Input.GetKeyDown(KeyCode.Return))
-        //    {
-        //        StartRecording();
-        //    }
-        //
-        //}
+        //Function to be called from UI to start the recording and set previous saved output text to empty
         public void StartRec()
         {
             outputText = "";
             StartRecording();
             
         }
+        
+        //Function to be called from UI to stop the recording
         public void StopRec()
         {
             StopRecording();
         }
 
+        //Function to be called from UI to return Final statements as detected from Speech To Text
         public string TextOutput()
         {
             return outputText;
         }
+        
         private IEnumerator CreateService()
         {
             if (string.IsNullOrEmpty(_iamApikey))
