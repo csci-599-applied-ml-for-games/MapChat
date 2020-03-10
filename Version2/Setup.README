@@ -1,0 +1,5 @@
+Folder Structure Should be:
+1. Add "DialogueTrigger.cs" to Scripts.
+2. Use IBM Cloud to Download the SDK
+3. Add the "ExampleStreaming.cs" and "ExampleNaturalLanguageUnderstanding.cs" in place of the files present.
+4. Run the Game (Enjoy!)
