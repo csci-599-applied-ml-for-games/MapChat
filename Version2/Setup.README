@@ -1,5 +1,6 @@
 Folder Structure Should be:
 1. Add "DialogueTrigger.cs" to Scripts.
-2. Use IBM Cloud to Download the SDK
-3. Add the "ExampleStreaming.cs" and "ExampleNaturalLanguageUnderstanding.cs" in place of the files present.
-4. Run the Game (Enjoy!)
+2. Add GrammarBot Folder to Scripts.
+3. Use IBM Cloud to Download the SDK
+4. Add the "ExampleStreaming.cs" and "ExampleNaturalLanguageUnderstandingV1.cs" in place of the files present.
+5. Run the Game (Enjoy!)
