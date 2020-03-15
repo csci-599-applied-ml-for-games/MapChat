@@ -1,14 +1,19 @@
-# Python Set-up
+# Content Generation
 
-## Create Python 3 virtual environment:
+## Python Environment Install 
+
+### Create Python 3 virtual environment:
 ```sh
  python3 -m venv venv
 ```
-## Activate virtual environment
+### Activate virtual environment
 ```sh
  source venv/bin/activate
 ```
-## Install dependencies 
+### Install dependencies 
 ```sh
  pip -r venv_req.txt
 ```
+
+## Data
+We are using Yelp's NLP dataset [found here](https://www.yelp.com/dataset)

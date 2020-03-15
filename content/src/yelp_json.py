@@ -99,11 +99,11 @@ rev_json = readJson("../yelp/small_review.json")
 cats = ["Coffee & Tea", "Coffee Roasteries", "Coffeeshops"]
 categoryReviews(bus_json, rev_json, cats, "coffee.json")
 
-# # get reviews for grocery stores
-# cats = ["Grocery"]
-# categoryReviews(bus_json, rev_json, cats, "grocery.json")
+# get reviews for grocery stores
+cats = ["Grocery"]
+categoryReviews(bus_json, rev_json, cats, "grocery.json")
 
-# # get review for gyms
-# cats = ["Gyms"]
-# categoryReviews(bus_json, rev_json, cats, "gym.json")
+# get review for gyms
+cats = ["Gyms"]
+categoryReviews(bus_json, rev_json, cats, "gym.json")
 
