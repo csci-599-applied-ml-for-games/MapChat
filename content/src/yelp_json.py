@@ -5,10 +5,14 @@ import json
 	return list
 '''
 def readJson(filename):
+	print("reading " + filename)
 	data = []
 	with open(filename, "r") as read_file:	
 		for line in read_file:
 			data.append(json.loads(line))
+	
+	print("finish reading " + filename)
+
 	return data
 
 

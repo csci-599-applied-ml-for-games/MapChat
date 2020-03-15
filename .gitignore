@@ -3,8 +3,6 @@ venv/
 
 yelp/
 
-# exclude everything
-rev/*
-
-# exception to the rule
-!rev/.gitkeep 
+# exclude review json, but keep directory
+content/rev/*
+!content/rev/.gitkeep 
