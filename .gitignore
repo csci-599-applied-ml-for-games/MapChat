@@ -2,4 +2,9 @@ __pycache__/
 venv/
 
 yelp/
-rev/
+
+# exclude everything
+rev/*
+
+# exception to the rule
+!rev/.gitkeep 
