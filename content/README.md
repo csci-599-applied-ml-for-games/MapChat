@@ -16,4 +16,4 @@
 ```
 
 ## Data
-We are using Yelp's NLP dataset [found here](https://www.yelp.com/dataset)
+We are using Yelp's [NLP dataset](https://www.yelp.com/dataset)
