@@ -1,8 +1,3 @@
 __pycache__/
 venv/
-
 yelp/
-
-# exclude review json, but keep directory
-content/rev/*
-!content/rev/.gitkeep 
