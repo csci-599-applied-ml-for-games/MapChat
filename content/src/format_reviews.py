@@ -2,10 +2,19 @@
 from yelp_reviews import *
 from nltk.tokenize import sent_tokenize
 
-label="grocery"
-tags=["food", "fruit", "vegetable", "deli"]
+# label="grocery"
+# tags=["food", "fruit", "vegetable", "deli"]
+
+label="gym"
+tags=["gym", "fitness", "train", "weight", "cardio"]
+
+
+label="coffee"
+tags=["coffee", "latte", "creamer", "sugar", "caffeine"]
+
+
 dat = readJson("yelp/parsed/rev/"+label+".json")
-f = open("textgenrnn/"+label+".txt", "w")
+f = open("textgenrnn/%s/%s_train.txt"%(label, label), "w")
 
 for obj in dat:	
 

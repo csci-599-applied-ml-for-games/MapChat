@@ -144,17 +144,17 @@ def main():
 	bus_json = readJson("yelp/raw/business.json")
 
 	# # get reviews for coffee
-	# cats = ["Coffee & Tea", "Coffee Roasteries", "Coffeeshops"]
-	# categoryReviews(bus_json, cats, "coffee")
+	cats = ["Coffee & Tea", "Coffee Roasteries", "Coffeeshops"]
+	categoryReviews(bus_json, cats, "coffee")
 
 	# get reviews for grocery stores
-	cats = ["Grocery"]
-	categoryReviews(bus_json, cats, "grocery")
+	# cats = ["Grocery"]
+	# categoryReviews(bus_json, cats, "grocery")
 
 	# get review for gyms
-	# cats = ["Gyms"]
-	# print(cats)
-	# categoryReviews(bus_json, cats, "gym")
+	cats = ["Gyms"]
+	print(cats)
+	categoryReviews(bus_json, cats, "gym")
 
 
 if __name__ == "__main__":
