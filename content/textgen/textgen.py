@@ -1,8 +1,41 @@
-from textgenrnn import textgenrnn
-print("finished import")
-from datetime import datetime
+
 import os
 import sys
+import json
+import re
+from datetime import datetime
+
+
+# arguments
+host=os.environ["HOSTNAME"]
+workers=os.environ["SLURM_JOB_NODELIST"]
+workers=workers[4:-1]
+workers=workers.replace('-',' ')
+workers=workers.replace(',',' ')
+workers=workers.split(' ')
+workers=["hpc"+w for w in workers]
+
+print(host)
+#print(workers)
+
+
+# get list of workers
+rank=workers.index(host)
+os.environ["TF_CONFIG"] = json.dumps({
+    'cluster': {
+        'worker': workers
+    },
+    'task': {'type': 'worker', 'index': rank}
+})
+
+
+import tensorflow as tf
+strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
+with strategy.scope():
+	from textgenrnn import textgenrnn
+	print("rank %d has finished import" % (rank))
+
+
 
 # input model name
 if len(sys.argv) <= 1:
@@ -43,11 +76,7 @@ train_cfg = {
 
 
 # Train!
-print("\n\n------\nStart training\n------\n")
 textgen = textgenrnn(name=model_name)
-print("next 1")
-
-
 train_function = textgen.train_from_file if train_cfg['line_delimited'] else textgen.train_from_largetext_file
 train_function(
     file_path=file_name,
@@ -67,7 +96,6 @@ train_function(
     word_level=model_cfg['word_level'])
 
 
-print("next 2")
 
 # Generate and save content
 temperature = [1.0, 0.5, 0.2, 0.2]   
@@ -88,11 +116,3 @@ textgen.generate_to_file(gen_file,
                          n=n,
                          max_gen_length=max_gen_length)
 
-
-print("next 3")
-exit(1)
-# data saved in:
-# model_gentext.txt
-# model_weights.hdf5
-# model_vocab.json
-# model_config.json

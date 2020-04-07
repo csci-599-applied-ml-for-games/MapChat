@@ -2,7 +2,8 @@
 #SBATCH --mail-type=ALL         
 #SBATCH --mail-user=sportega@usc.edu	
 #SBATCH --nodes=2
-#SBATCH --mem=2gb
+#SBATCH --ntasks=2
+#SBATCH --mem-per-cpu=2gb
 #SBATCH --gres=gpu:2
 #SBATCH --time=00:30:00
 #SBATCH --output=<label>.out
@@ -15,5 +16,7 @@ source /usr/usc/cuDNN/v7.6.5-cuda10.1/setup.sh
  
 #nvcc --version
 #which python3
+
+get all hostnames
 
 srun python3 textgen.py <label>
