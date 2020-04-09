@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --mail-type=ALL         
 #SBATCH --mail-user=sportega@usc.edu	
-#SBATCH --nodes=2
-#SBATCH --ntasks=2
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=2gb
 #SBATCH --gres=gpu:2
-#SBATCH --time=00:30:00
+#SBATCH --time=04:00:00
 #SBATCH --output=<label>.out
 
 cd <wd>
@@ -17,6 +17,7 @@ source /usr/usc/cuDNN/v7.6.5-cuda10.1/setup.sh
 #nvcc --version
 #which python3
 
-get all hostnames
+srun -N1 -n1 python3 textgen.py <label>
 
-srun python3 textgen.py <label>
+#nodes_ips=$(./getnodeips.sh)
+#srun -N2 -n2 python3 textgen.py <label> $nodes_ips

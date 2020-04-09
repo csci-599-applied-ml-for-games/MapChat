@@ -10,8 +10,7 @@ do
 	#mkdir -p $model
 	cp textgen.sl $model/$model.sl
 	cd $model
-	
-    sed -i "s|<label>|"$model"|g" $model.sl 
+	sed -i "s|<label>|"$model"|g" $model.sl 
 	sed -i "s|<wd>|"$wd"|g" $model.sl	
 	
 	sbatch $model.sl 

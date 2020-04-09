@@ -3,25 +3,11 @@ import sys
 import json
 import re
 from datetime import datetime
-import tensorflow as tf
-
-# arguments
-# input model name
-
-
-model,file = parse_args()
-set_tconfig()
-
-
-strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
-with strategy.scope():
-	from textgenrnn import textgenrnn
-	train_model(model_name, file_name)
 
 
 
 
-def parse_args()
+def parse_args():
 	if len(sys.argv) <= 1:
 		print("need model name (label)")
 		exit(1)
@@ -34,26 +20,30 @@ def parse_args()
 	print("model name: %s" % (model_name))
 	return model_name, file_name
 
-def set_tconfig()
+def set_tconfig():
+	rank=os.environ["SLURM_NODEID"]
+	
+	nodes = []
+	workers = []
 
-	# Get Ip address of every node in nodelist
+	for i in range(2, len(sys.argv)-1, 2):
+		node = sys.argv[i]
+		nodes.append(node)
 
-	host=os.environ["HOSTNAME"]
-	workers=os.environ["SLURM_JOB_NODELIST"]
-	workers=workers[4:-1]
-	workers=workers.replace('-',' ')
-	workers=workers.replace(',',' ')
-	workers=workers.split(' ')
-	workers=["hpc"+w for w in workers]
+		ip = sys.argv[i+1]
+		workers.append("%s:5555" % (ip))
 
-	# get list of workers
-	rank=workers.index(host)
+	# create config dict
 	config={'cluster': 
 				{'worker': workers},
+			''
 			'task': 
 				{'type': 'worker', 'index': rank}}
 
-	os.environ["TF_CONFIG"] = json.dumps()
+	print(config)
+
+	# set env variable
+	os.environ["TF_CONFIG"] = json.dumps(config)
 
 
 
@@ -68,7 +58,7 @@ def train_model(model_name, file_name):
 	}
 	train_cfg = {
 		'line_delimited': True,   # set to True if each text has its own line in the source file
-		'num_epochs': 30,   # set higher to train the model for longer
+		'num_epochs': 20,   # set higher to train the model for longer
 		'gen_epochs': 10,   # generates sample text from model after given number of epochs
 		'train_size': 0.8,   # proportion of input data to train on: setting < 1.0 limits model from learning perfectly
 		'dropout': 0.0,   # ignore a random proportion of source tokens each epoch, allowing model to generalize better
@@ -114,3 +104,21 @@ def train_model(model_name, file_name):
 							 n=n,
 							 max_gen_length=max_gen_length)
 
+
+
+
+# arguments
+# input model name
+
+
+model,file = parse_args()
+#set_tconfig()
+
+import tensorflow as tf
+#strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
+
+#with strategy.scope():
+if True:
+	print("\n\nstarting training\n\n")
+	from textgenrnn import textgenrnn
+	train_model(model, file)
