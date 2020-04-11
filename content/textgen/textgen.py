@@ -1,9 +1,8 @@
 import os
 import sys
 import json
-import re
 from datetime import datetime
-
+from textgenrnn import textgenrnn
 
 
 
@@ -19,7 +18,7 @@ def parse_args():
 	os.chdir(model_name)
 	print("model name: %s" % (model_name))
 	return model_name, file_name
-
+'''
 def set_tconfig():
 	rank=os.environ["SLURM_NODEID"]
 	
@@ -44,10 +43,15 @@ def set_tconfig():
 
 	# set env variable
 	os.environ["TF_CONFIG"] = json.dumps(config)
+'''
 
 
+model_name, file_name = parse_args()
+print("\n\nstarting training\n\n")
 
-def train_model(model_name, file_name):
+
+#def train_model(model_name, file_name):
+if True:
 	model_cfg = {
 		'word_level': False,   # set to True if want to train a word-level model (requires more data and smaller max_length)
 		'rnn_size': 128,   # number of LSTM cells of each layer (128/256 recommended)
@@ -107,18 +111,5 @@ def train_model(model_name, file_name):
 
 
 
-# arguments
-# input model name
+# driver
 
-
-model,file = parse_args()
-#set_tconfig()
-
-import tensorflow as tf
-#strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
-
-#with strategy.scope():
-if True:
-	print("\n\nstarting training\n\n")
-	from textgenrnn import textgenrnn
-	train_model(model, file)
