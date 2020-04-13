@@ -157,8 +157,14 @@ def main():
 
 
 	# get reviews for banks
-	cats = ["Banks & Credit Unions"]
-	categoryReviews(bus_json, cats, "bank")
+	# cats = ["Banks & Credit Unions"]
+	# categoryReviews(bus_json, cats, "bank")
+
+	# cats = ["University Housing"]
+	# categoryReviews(bus_json, cats, "dorm")
+
+	cats = ["Children's Clothing", "Men's Clothing", "Women's Clothing"]
+	categoryReviews(bus_json, cats, "clothes")
 
 
 if __name__ == "__main__":
