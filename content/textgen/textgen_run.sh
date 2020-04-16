@@ -1,8 +1,8 @@
 #!/bin/bash
 wd="/home/rcf-40/sportega/ml4g/textgen"
 #models=("coffee" "gym")
-models=("coffee")
-
+#models=("bank")
+models=("clothes" "dorm")
 cd $wd
 
 for model in ${models[*]};

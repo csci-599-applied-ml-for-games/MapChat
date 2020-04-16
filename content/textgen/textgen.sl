@@ -19,5 +19,3 @@ source /usr/usc/cuDNN/v7.6.5-cuda10.1/setup.sh
 
 srun -N1 -n1 python3 textgen.py <label>
 
-#nodes_ips=$(./getnodeips.sh)
-#srun -N2 -n2 python3 textgen.py <label> $nodes_ips
