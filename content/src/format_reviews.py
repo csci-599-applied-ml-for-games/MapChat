@@ -5,7 +5,7 @@ from nltk.tokenize import sent_tokenize
 # label="grocery"
 # tags=["food", "fruit", "vegetable", "deli"]
 
-# label="gym"
+label="gym"
 # tags=["gym", "fitness", "train", "weight", "cardio"]
 
 
@@ -13,7 +13,7 @@ from nltk.tokenize import sent_tokenize
 # tags=["coffee", "latte", "creamer", "sugar", "caffeine"]
 
 
-label="bank"
+# label="bank"
 # tags=["bank", "money", "service", "account", "saving", "checking", "loan"]
 
 
@@ -33,8 +33,8 @@ f = open("%s/%s_train.txt" % (textgen_dir, label), "w")
 for obj in dat:	
 
 	# happy reviews
-	#if obj['rate'] >= 1.0:
-	if True:	
+	if obj['rate'] >= 4.0:
+	# if True:	
 		# split up review by sentence
 		for sentence in sent_tokenize(obj['text']):
 			# check number of words in sentence  
