@@ -13,14 +13,14 @@ from nltk.tokenize import sent_tokenize
 # tags=["coffee", "latte", "creamer", "sugar", "caffeine"]
 
 
-# label="bank"
+label="bank"
 # tags=["bank", "money", "service", "account", "saving", "checking", "loan"]
 
 
 # label="dorm"
 # tags=[""]
 
-label="clothes"
+# label="clothes"
 tags=[""]
 
 textgen_dir = "textgen/%s" % (label)
