@@ -121,3 +121,61 @@ Dorm:
 		People create their own parking spaces, often times blocking others from getting out easily.
 		The elevator was always disgusting along with the stairs and hallways.
 		The dorms are extremely loud because there are people partying constantly.
+
+
+
+Grocery
+
+	# generated reviews
+		My favorite part of the day is the food court.
+		I love the fruit salad in the deli case is a must.
+
+
+	# real reviews
+		A great place to get the staples like onions, avocados, beans, rice, fruit, bread, oil, etc.
+		They always have some unique kind of salmon burger and its always delicious.
+		Speaking of vegan, their vegan food selection is vast!
+		On the way out they even gave away recycle bags.
+		They have all your rice needs; spices; and everything else you need to make traditional dishes.
+		I really liked their selection of alcohol and their bottled cocktails.
+		I will say that i like the variety of locally grown produce at this location.
+		Their selection of meat is amazing and their marinade is super tasty!
+		Great breakfast place with a good number of vegetarian options.
+		This is the place to get the freshest, biggest, tastiest sub sandwich in the area.
+		They had several workers out on the floor restocking and available to answer questions in case you had any.
+		I love to eat the fresh made burritos, carne asada is delicious.
+		They have a great selection of other foods, and i was surprised with the number of organic products in stock.
+		They did have some sashimi grade salmon that looked good.
+		We ordered my son's birthday cake from here and some cupcakes.
+		They have a full wine cellar and hold wine tastings as well.
+		Awesome food and if you go for breakfast i highly recommend the fresh squeezed orange juice.
+		The clerk was super helpful and i found all of the ingredients i needed to make some indian dishes.
+		There's a deli in back with cold cuts and rotisserie chicken.
+		They have so many amazing choices in the frozen food section, especially for someone young cooking for one.
+
+
+
+Gym
+
+	
+	# real reviews
+		I expressed an interest in trying out crossfit after years of being bored at traditional gyms.
+		From the mma guys to muay thai fighters you are always getting different looks from everyone while training.
+		The gym area is packed with treadmills, ellipticals, standard weight machines, and free weights.
+		I love the variety of cardio, yoga, and sculpting workouts to mix things up!
+		The trainers are awesome and will tailor group workouts to your individual needs and abilities.
+		Now i can watch netflix at the gym and get my protein shake on with ease.
+		The front half of the gym is full of the cardio equipment.
+		I was pleased to find the atmosphere comfortable for all fitness levels.
+		The reviews were great, so before even visiting the gym i winged it and got my membership online!
+		No other gym offers such a diverse range of classes for the price.
+		
+		Was able lose some weight and get in shape if few weeks!
+		There are towels and sanitation wipes all over the gym, it's great!
+		I don't have kids but my gym partner does and her kids love daycare this location the most!
+		The gym is fairly large in size and is equipped with bathrooms, showers, and lockers.
+		I loved that they offered free kickboxing and boxing classes.
+		My favorite aspect of this gym has to be the beautiful yoga studio.
+
+
+
