@@ -1,11 +1,10 @@
-
 from yelp_reviews import *
 from nltk.tokenize import sent_tokenize
 
 # label="grocery"
 # tags=["food", "fruit", "vegetable", "deli"]
 
-label="gym"
+# label="gym"
 # tags=["gym", "fitness", "train", "weight", "cardio"]
 
 
@@ -17,11 +16,15 @@ label="gym"
 # tags=["bank", "money", "service", "account", "saving", "checking", "loan"]
 
 
-# label="dorm"
-# tags=[""]
-
-# label="clothes"
+# label connects program to parsed data
+label=""
+# only save sentences that contain tags
 tags=[""]
+
+if label == "":
+	print("User needs to specify label")
+	exit(1)
+
 
 textgen_dir = "textgen/%s" % (label)
 if not os.path.exists(textgen_dir):
@@ -33,7 +36,7 @@ f = open("%s/%s_train.txt" % (textgen_dir, label), "w")
 for obj in dat:	
 
 	# happy reviews
-	if obj['rate'] >= 4.0:
+	if obj['rate'] >= 3.0:
 	# if True:	
 		# split up review by sentence
 		for sentence in sent_tokenize(obj['text']):

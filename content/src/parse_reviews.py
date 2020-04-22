@@ -3,9 +3,56 @@ import json
 import os
 import time
 
-# path of content directory from repo on local machine
-content_dir="/home/sportega/Desktop/ml4g/content"
-os.chdir(content_dir)
+# path of MapChat directory from repo on local machine
+wd = ""
+if wd == "":
+	print("Need local path to MapChat directory")
+	exit(1)
+os.chdir(wd + "/content")
+
+
+''' driver code '''
+
+def main():
+	# get yelp json data
+	bus_json = readJson("yelp/raw/business.json")
+
+	# label to store parsed data ('gym', 'coffee', etc)
+	label = ""
+
+	# categories of businesses to parse. 
+	# all valid business categories can be found at:
+	# content/yelp/parsed/bus/business_categories.txt
+	categories = [""]
+
+
+	if label == "":
+		print("User needs to provide label and category list")
+		exit(1)
+
+	# parse and store reviews from appropriate businesses
+	categoryReviews(bus_json, categories, label)
+
+	# categories ex:
+
+	# label = "coffee"
+	# cats = ["Coffee & Tea", "Coffee Roasteries", "Coffeeshops"]
+
+	# label = "grocery"
+	# cats = ["Grocery"]
+
+	# label = "gym"
+	# cats = ["Gyms"]
+
+	# label = "bank"
+	# cats = ["Banks & Credit Unions"]
+
+	# label = "dorm"
+	# cats = ["University Housing"]
+
+	# label = "clothes"
+	# cats = ["Children's Clothing", "Men's Clothing", "Women's Clothing"]
+
 
 ''' given filename, read every json obj
 	return list
@@ -81,7 +128,6 @@ def getBusinesses(bus_json, categories, label):
 
 	return bus_id
 
-
 ''' given a list of business IDs,
 		get all relevant reviews for yelp reviews json
 	return reviews to file
@@ -136,37 +182,5 @@ def categoryReviews(bus_json, cats, label):
 
 		print("total time: %s" % (total_time))
 
-
-''' driver code '''
-
-def main():
-	# get yelp json data
-	bus_json = readJson("yelp/raw/business.json")
-
-	# # get reviews for coffee
-	# cats = ["Coffee & Tea", "Coffee Roasteries", "Coffeeshops"]
-	# categoryReviews(bus_json, cats, "coffee")
-
-	# get reviews for grocery stores
-	# cats = ["Grocery"]
-	# categoryReviews(bus_json, cats, "grocery")
-
-	# get review for gyms
-	# cats = ["Gyms"]
-	# categoryReviews(bus_json, cats, "gym")
-
-
-	# get reviews for banks
-	# cats = ["Banks & Credit Unions"]
-	# categoryReviews(bus_json, cats, "bank")
-
-	# cats = ["University Housing"]
-	# categoryReviews(bus_json, cats, "dorm")
-
-	cats = ["Children's Clothing", "Men's Clothing", "Women's Clothing"]
-	categoryReviews(bus_json, cats, "clothes")
-
-
 if __name__ == "__main__":
 	main()
-
