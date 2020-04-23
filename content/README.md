@@ -37,16 +37,19 @@ At this point you have the whole Yelp NLP dataset. Now we have to parse this dat
 
 ##### parse_reviews.py
 - Open src/parse_reviews.py
-- Add MapChat local path in global variable "wd"
-- Add "label" and list of "categories" (business categories to filter reviews)
+- Add "label"
+- Add list of "categories" 
+	- Business categories to filter reviews
     - All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt). 
 - Run "python3 parse_review"
 
 ##### format_reviews.py
 - Open src/format_reviews.py
-- Add "label" and list of "tags" (words to filter review sentences)
+- Add "label" 
+- Add list of "tags"
+	- Searches/return every sentence with at least 1 tag
 - Run "python3 format_review"
-    - All parsed training data can be found at: textgen/<label>/<label>_train.txt
+    - All parsed training data can be found at: textgen/label/label_train.txt
 
 
 ## Train 
@@ -56,7 +59,7 @@ At this point we have our training data ready. Next step is training via some Ma
 We used [textgenrnn](https://github.com/minimaxir/textgenrnn) package to train on our parsed Yelp data and generate content. This package is ready to use out of the box, while utilizing Tensorflow (Neural Network) backend.
 
 #### CUDA and CudNN
-Training texgenrnn without a GPU takes too long. If GPU is available, make sure to download and install CUDA and cudNN. If confused about the compatibility of tensorflow/CUDA/cuDNN versions check this useful [stackoverflow post](https://stackoverflow.com/questions/50622525/which-tensorflow-and-cuda-version-combinations-are-compatible).
+Training texgenrnn without a GPU takes too long. If Nvidia GPU is available, make sure to download and install CUDA and cudNN. If confused about the compatibility of tensorflow/CUDA/cuDNN versions check this useful [stackoverflow post](https://stackoverflow.com/questions/50622525/which-tensorflow-and-cuda-version-combinations-are-compatible).
 
 #### Training on USCHPC
 With computing resources being scarce on my local machine, I decided to do all of our training on [USC's Supercomputer](https://hpcc.usc.edu/gettingstarted/), which has a ton of GPU's and CUDA/cuDNN already installed!
