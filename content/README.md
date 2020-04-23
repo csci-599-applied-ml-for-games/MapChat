@@ -40,16 +40,16 @@ At this point you have the whole Yelp NLP dataset. Now we have to parse this dat
 - Add "label"
 - Add list of "categories" 
 	- Business categories to filter reviews
-    - All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt)
+	- All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt)
 - Run "python3 parse_review"
 
 #### format_reviews.py
 - Open src/format_reviews.py
 - Add "label" 
 - Add list of "tags"
-	- Searches/return every sentence with at least 1 tag
+	- Only sentences with at least 1 tag will be filtered
 - Run "python3 format_review"
-    - All parsed training data can be found at: textgen/label/label_train.txt
+	- All training data can be found at: textgen/label/label_train.txt
 
 
 ## Training Model
