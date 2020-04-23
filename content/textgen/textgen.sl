@@ -1,6 +1,4 @@
 #!/bin/bash
-#SBATCH --mail-type=ALL         
-#SBATCH --mail-user=sportega@usc.edu	
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=2gb

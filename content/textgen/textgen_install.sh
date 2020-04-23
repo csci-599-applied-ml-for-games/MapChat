@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# install virtual environment
-
-# manually connect python3.7
+# connect to uschpc python3.7 library
 source /usr/usc/python/3.7.4/setup.sh
 
 # create a python3 virual environment
