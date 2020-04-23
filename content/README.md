@@ -30,7 +30,7 @@ In order to generate text that we can use to "chat" with our users, we need to u
 In order to use our scripts you must first:
 - Download Yelp dataset
 - Put 'review.json' and 'business.json' into 'yelp/raw'
-- If not enough memory on local machine, run 'split_reviews.sh' to split file into smaller chunks to be processed sequentially.
+- If not enough memory on local machine, run 'split_reviews.sh' to split file into smaller chunks to be processed sequentially
 
 ## Parse Reviews for Training Text
 At this point you have the whole Yelp NLP dataset. Now we have to parse this data for more specific reviews so we can train our models on specific topics. We are essentially going to repeat this process to make a model for each desired topic/label (coffee, gym, grocery, etc).
@@ -40,7 +40,7 @@ At this point you have the whole Yelp NLP dataset. Now we have to parse this dat
 - Add "label"
 - Add list of "categories" 
 	- Business categories to filter reviews
-    - All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt). 
+    - All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt)
 - Run "python3 parse_review"
 
 #### format_reviews.py
@@ -65,12 +65,12 @@ Training texgenrnn without a GPU takes too long. If Nvidia GPU is available, mak
 With computing resources being scarce on my local machine, I decided to do all of our training on [USC's Supercomputer](https://hpcc.usc.edu/gettingstarted/), which has a ton of GPU's and CUDA/cuDNN already installed!
 
 #### textgen_install.sh
-- This script will setup your python virtual environment for textgenrnn training on uschpc.
-- Run once "./textgen_install.sh"
+- This script will setup your python virtual environment for textgenrnn training on uschpc
+- Run "./textgen_install.sh" once at setup
 
 #### textgen_run.sh
 - Open textgen/textgen_run.sh
 - Add list of 'labels' to start training
 - Run "./textgen_run.sh"
-	- A batch job for each label/model will be submitted to the USC HPC job scheduler.
+	- A batch job for each label/model will be submitted to the USC HPC job scheduler
 	- Weights from training and generated text can be found at: textgen/label/label_gentext.txt
