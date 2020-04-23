@@ -49,7 +49,7 @@ At this point you have the whole Yelp NLP dataset. Now we have to parse this dat
     - All parsed training data can be found at: textgen/<label>/<label>_train.txt
 
 
-## Train 
+## Training Model
 At this point we have our training data ready. Next step is training via some Machine Learning.
 
 #### Textgenrnn
