@@ -19,7 +19,7 @@ Before you can use any of our python scripts you must first setup your [python v
 #### Install Packages
 All required package names and versions can be found in requirements.txt
 ```sh
- # install requirments
+ # install requirements
  pip -r requirements.txt
 ```
 
