@@ -35,14 +35,14 @@ In order to use our scripts you must first:
 ## Parse Reviews for Training Text
 At this point you have the whole Yelp NLP dataset. Now we have to parse this data for more specific reviews so we can train our models on specific topics. We are essentially going to repeat this process to make a model for each desired topic/label (coffee, gym, grocery, etc).
 
-##### parse_reviews.py
+#### parse_reviews.py
 - Open src/parse_reviews.py
 - Add MapChat local path in global variable "wd"
 - Add "label" and list of "categories" (business categories to filter reviews)
     - All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt). 
 - Run "python3 parse_review"
 
-##### format_reviews.py
+#### format_reviews.py
 - Open src/format_reviews.py
 - Add "label" and list of "tags" (words to filter review sentences)
 - Run "python3 format_review"
@@ -61,11 +61,11 @@ Training texgenrnn without a GPU takes too long. If GPU is available, make sure 
 #### Training on USCHPC
 With computing resources being scarce on my local machine, I decided to do all of our training on [USC's Supercomputer](https://hpcc.usc.edu/gettingstarted/), which has a ton of GPU's and CUDA/cuDNN already installed!
 
-##### textgen_install.sh
+#### textgen_install.sh
 - This script will setup your python virtual environment for textgenrnn training on uschpc.
 - Run once "./textgen_install.sh"
 
-##### textgen_run.sh
+#### textgen_run.sh
 - Open textgen/textgen_run.sh
 - Add local path of MapChat into 'wd' 
 - Add list of 'labels' to start training
