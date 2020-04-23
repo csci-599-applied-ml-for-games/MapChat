@@ -62,8 +62,8 @@ Training texgenrnn without a GPU takes too long. If GPU is available, make sure 
 With computing resources being scarce on my local machine, I decided to do all of our training on [USC's Supercomputer](https://hpcc.usc.edu/gettingstarted/), which has a ton of GPU's and CUDA/cuDNN already installed!
 
 ##### textgen_install.sh
-This script will setup your python virtual environment for textgenrnn training on uschpc.
-Run "./textgen_install.sh"
+- This script will setup your python virtual environment for textgenrnn training on uschpc.
+- Run once "./textgen_install.sh"
 
 ##### textgen_run.sh
 - Open textgen/textgen_run.sh
