@@ -3,19 +3,12 @@ import json
 import os
 import time
 
-# path of MapChat directory from repo on local machine
-wd = ""
-if wd == "":
-	print("Need local path to MapChat directory")
-	exit(1)
-os.chdir(wd + "/content")
-
+# cd into content dir
+os.chdir("../")
 
 ''' driver code '''
 
 def main():
-	# get yelp json data
-	bus_json = readJson("yelp/raw/business.json")
 
 	# label to store parsed data ('gym', 'coffee', etc)
 	label = ""
@@ -31,7 +24,7 @@ def main():
 		exit(1)
 
 	# parse and store reviews from appropriate businesses
-	categoryReviews(bus_json, categories, label)
+	categoryReviews(categories, label)
 
 	# categories ex:
 
@@ -153,34 +146,36 @@ def getReviews(rev_json, businesses, label):
 ''' given some categories,
 		get every review associated
 '''
-def categoryReviews(bus_json, cats, label):
-		print("--------------------")
-		print("starting " + label)
-		bus = getBusinesses(bus_json, cats, label)
-		print("located all business related")
+def categoryReviews(cats, label):
+	# get yelp json data
+	bus_json = readJson("yelp/raw/business.json")
+	print("--------------------")
+	print("starting " + label)
+	bus = getBusinesses(bus_json, cats, label)
+	print("located all business related")
 
-		# remove file if exists
-		label_filepath = "yelp/parsed/rev/"+label+".json"
-		if os.path.exists(label_filepath):
-		    os.remove(label_filepath)
+	# remove file if exists
+	label_filepath = "yelp/parsed/rev/"+label+".json"
+	if os.path.exists(label_filepath):
+	    os.remove(label_filepath)
 
-		# for each review file (file too big, split it up into 6 even chunks)
-		total_time = 0
-		for i in range(6):
-			start_time = time.time()
-			rev_filename = "review_"+str(i)+".json"
+	# for each review file (file too big, split it up into 6 even chunks)
+	total_time = 0
+	for i in range(6):
+		start_time = time.time()
+		rev_filename = "review_"+str(i)+".json"
 
-			print("opening %s" % (rev_filename))
-			rev_json = readJson("yelp/raw/" + rev_filename)
+		print("opening %s" % (rev_filename))
+		rev_json = readJson("yelp/raw/" + rev_filename)
 
-			print("searching through %s" % (rev_filename))
-			revs = getReviews(rev_json, bus, label)
-			
-			finish_time = (time.time() - start_time)
-			total_time += finish_time
-			print("finished %s in %s sec" % (rev_filename, finish_time))
+		print("searching through %s" % (rev_filename))
+		revs = getReviews(rev_json, bus, label)
+		
+		finish_time = (time.time() - start_time)
+		total_time += finish_time
+		print("finished %s in %s sec" % (rev_filename, finish_time))
 
-		print("total time: %s" % (total_time))
+	print("total time: %s" % (total_time))
 
 if __name__ == "__main__":
 	main()

@@ -70,8 +70,7 @@ With computing resources being scarce on my local machine, I decided to do all o
 
 #### textgen_run.sh
 - Open textgen/textgen_run.sh
-- Add local path of MapChat into 'wd' 
 - Add list of 'labels' to start training
 - Run "./textgen_run.sh"
-	- A batch job for each label/model will be submitted to the USCHPC job scheduler.
-	- Weights from training and generated text can be found at: textgen/<label>/<label>_gentext.txt
+	- A batch job for each label/model will be submitted to the USC HPC job scheduler.
+	- Weights from training and generated text can be found at: textgen/label/label_gentext.txt

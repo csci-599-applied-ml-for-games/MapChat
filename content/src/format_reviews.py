@@ -1,5 +1,9 @@
-from yelp_reviews import *
+from parse_reviews import readJson
 from nltk.tokenize import sent_tokenize
+from os import chdir
+
+# currently in src, cd into parent dir (content)
+chdir("../")
 
 # label="grocery"
 # tags=["food", "fruit", "vegetable", "deli"]
@@ -25,6 +29,8 @@ if label == "":
 	print("User needs to specify label")
 	exit(1)
 
+# get all reviews with this as the least rating 
+rate = 3.0
 
 textgen_dir = "textgen/%s" % (label)
 if not os.path.exists(textgen_dir):
@@ -36,7 +42,7 @@ f = open("%s/%s_train.txt" % (textgen_dir, label), "w")
 for obj in dat:	
 
 	# happy reviews
-	if obj['rate'] >= 3.0:
+	if obj['rate'] >= rate:
 	# if True:	
 		# split up review by sentence
 		for sentence in sent_tokenize(obj['text']):
@@ -53,12 +59,3 @@ for obj in dat:
 						# done = True
 						print(sentence.capitalize(), file=f)
 						break
-
-				# if done: 
-
-				# 	for 
-
-				# 	break
-
-		# exit(1)
-

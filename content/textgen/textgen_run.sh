@@ -1,14 +1,13 @@
 #!/bin/bash
-wd=""
-labels=("")
+
+labels=()
 #labels=("coffee" "gym" "bank")
 
-if wd == "":
-	print("Need to add MapChat local path")
-	exit(1)
+if [ ${#labels[*]} -eq 0 ]; do
+	echo "Need to add labels of models you would like to train"
+	exit 1
+done
 
-textgen_dir=$wd/content/textgen
-cd $textgen_dir
 for model in ${labels[*]};
 do
 	echo $model
@@ -19,8 +18,5 @@ do
 	
 	sbatch $model.sl
 	sleep 1
-
-	cd $textgen_dir
+	cd ..
 done
-
-
