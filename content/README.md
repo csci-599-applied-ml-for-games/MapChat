@@ -19,7 +19,7 @@ Before you can use any of our python scripts you must first setup your [python v
 #### Install Packages
 All required package names and versions can be found in requirements.txt
 ```sh
- # install requirments
+ # install requirements
  pip -r requirements.txt
 ```
 
@@ -35,7 +35,7 @@ In order to use our scripts you must first:
 ## Parse Reviews for Training Text
 At this point you have the whole Yelp NLP dataset. Now we have to parse this data for more specific reviews so we can train our models on specific topics. We are essentially going to repeat this process to make a model for each desired topic/label (coffee, gym, grocery, etc).
 
-##### parse_reviews.py
+#### parse_reviews.py
 - Open src/parse_reviews.py
 - Add "label"
 - Add list of "categories" 
@@ -43,7 +43,7 @@ At this point you have the whole Yelp NLP dataset. Now we have to parse this dat
     - All valid Yelp business categories found [here](https://github.com/csci-599-applied-ml-for-games/MapChat/blob/master/content/yelp/parsed/bus/business_categories.txt). 
 - Run "python3 parse_review"
 
-##### format_reviews.py
+#### format_reviews.py
 - Open src/format_reviews.py
 - Add "label" 
 - Add list of "tags"
@@ -52,7 +52,7 @@ At this point you have the whole Yelp NLP dataset. Now we have to parse this dat
     - All parsed training data can be found at: textgen/label/label_train.txt
 
 
-## Train 
+## Training Model
 At this point we have our training data ready. Next step is training via some Machine Learning.
 
 #### Textgenrnn
@@ -64,11 +64,11 @@ Training texgenrnn without a GPU takes too long. If Nvidia GPU is available, mak
 #### Training on USCHPC
 With computing resources being scarce on my local machine, I decided to do all of our training on [USC's Supercomputer](https://hpcc.usc.edu/gettingstarted/), which has a ton of GPU's and CUDA/cuDNN already installed!
 
-##### textgen_install.sh
-This script will setup your python virtual environment for textgenrnn training on uschpc.
-Run "./textgen_install.sh"
+#### textgen_install.sh
+- This script will setup your python virtual environment for textgenrnn training on uschpc.
+- Run once "./textgen_install.sh"
 
-##### textgen_run.sh
+#### textgen_run.sh
 - Open textgen/textgen_run.sh
 - Add local path of MapChat into 'wd' 
 - Add list of 'labels' to start training
