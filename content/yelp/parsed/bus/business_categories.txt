@@ -1,3 +1,4 @@
+# List of every Yelp business category and the number of businesses that identify with it
 3D Printing 13
 ATV Rentals/Tours 51
 Acai Bowls 100
